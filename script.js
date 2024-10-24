@@ -618,9 +618,9 @@ function displayCurrentInfo(noRedraw = true) {
 
     str1 = "<h3>" + capitalizeFirstLetter(currentLocation) + "</h3>";
     str2 = "<p>" + theInfo + "</p>";
-    str3 = "<div class='separator'></div><div class='flexer'><div><p>Market Prices: </p><ul><em>Buy – Sell</em>" + Object.entries(tradingPrices).map(([key, value]) => `<li><strong>${key}</strong>: ${value[0] + " – " + value[1]}</li>`).join('') + "</ul><p>Market Shortages: " + shortageStr + "</p></div>";
-    str4 = "<div><p>Possible Destinations:</p>"+ landList + seaList + "</div></div>";
-    str5 = "<div class='separator'></div><div><p>Available Transportation Info: </p><ul>" + transports.filter((item, index) => { if (!hasLandConnection()) { return index === 1; } return !(portCity === false && index === 1) && index > 0; }).map(item => `<li><strong>${item.transport}</strong>: Buy: ${item.buy}, Maintenance: ${item.maintenance}, Cargo: ${item.cargo}, Movement: ${item.movement}</li>`).join('') + "</ul></div><div class='separator'></div>";
+    str3 = "<div class='separator'></div><div class='flexer'><div><p class='caps'>Market Prices: </p><ul><em>Buy – Sell</em>" + Object.entries(tradingPrices).map(([key, value]) => `<li><strong>${key}</strong>: ${value[0] + " – " + value[1]}</li>`).join('') + "</ul><p>Market Shortages: " + shortageStr + "</p></div>";
+    str4 = "<div><p class='caps'>Possible Destinations:</p>"+ landList + seaList + "</div></div>";
+    str5 = "<div class='separator'></div><div><p class='caps'>Available Transportation Info: </p><ul>" + transports.filter((item, index) => { if (!hasLandConnection()) { return index === 1; } return !(portCity === false && index === 1) && index > 0; }).map(item => `<li><strong>${item.transport}</strong>: Buy: ${item.buy}, Maintenance: ${item.maintenance}, Cargo: ${item.cargo}, Movement: ${item.movement}</li>`).join('') + "</ul></div><div class='separator'></div>";
 
     let str = str1+str2+str3+str4+str5;
     showMsg(str, noRedraw);
